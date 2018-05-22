@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta content=”yes” name=”apple-mobile-web-app-capable” />
+    <meta content=”black” name=”apple-mobile-web-app-status-bar-style” />
+    <meta content=”telephone=no” name=”format-detection” />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.css">
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css">
+    <link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+	<title>Login Page</title>
+    <style>
+        .gap{margin:0 2%;}
+    </style>
+</head>
+<body>
+<div data-role="page" id="Page_login">
+  	<div data-role="header" data-theme="c" class="ui-bar-c">
+      	<h3>请登录</h3>
+  	</div> 
+  	<div data-role="main" class="ui-content">
+      	<form action="http://192.168.1.104/Ego/login.php" method="post" style="margin-top:25%">
+          <laber for="username" class="ui-hidden-accessible">用户名:</laber>
+          <div class="gap"><input type="text" id="username" name="username" placeholder="请输入用户名" data-clear-btn="true" onfocusout="validatename(this.value)"></div>
+          <p class="gap" id="name" style="color:red;"></p><br>
+          <laber for="password" class="ui-hidden-accessible">密码:</laber>
+          <div class="gap"><input type="password" id="password" name="password" placeholder="请输入密码" data-clear-btn="true" onfocusout="validatepwd(this.value)"></div>
+          <p class="gap" id="pwd" style="color:red;"></p><br><br>
+          <div class="gap"><input type="submit" value="提交"></div>
+      	</form><br>
+      	<div class="ui-grid-c">
+          <div class="ui-block-a"><a href="#">忘记密码？</a></div>
+          <div class="ui-block-b"></div>
+          <div class="ui-block-c"></div>
+          <div class="ui-block-d"><a href="Register.html" style="padding-left:50%">注册</a></div>
+      	</div>
+  	</div>
+</div>
+<script src="js/hello.js"></script>
+<script src="js/index.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.4.5.js"></script>
+</body>
+</html>

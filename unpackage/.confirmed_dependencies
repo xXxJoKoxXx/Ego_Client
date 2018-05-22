@@ -1,0 +1,40 @@
+{
+  "index.html": {
+    "href": "index.html",
+    "priority": 0,
+    "resources": [],
+    "refer": []
+  },
+  "Register.html": {
+    "refer": [
+      "Login.html"
+    ],
+    "resources": []
+  },
+  "Login.html": {
+    "refer": [
+      "Main.html"
+    ],
+    "resources": []
+  },
+  "wel.html": {
+    "refer": [
+      "Login.html",
+      "login.php",
+      "Main.php"
+    ],
+    "resources": []
+  },
+  "Main.html": {
+    "refer": [
+      "Search.html"
+    ],
+    "resources": []
+  },
+  "Search.html": {
+    "refer": [
+      "Main.html"
+    ],
+    "resources": []
+  }
+}

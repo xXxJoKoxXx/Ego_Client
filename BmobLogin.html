@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta content=”yes” name=”apple-mobile-web-app-capable” />
+    <meta content=”black” name=”apple-mobile-web-app-status-bar-style” />
+    <meta content=”telephone=no” name=”format-detection” />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.css">
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css">
+    <link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.css">
+	<title>Login Page</title>
+    <style>
+        .gap{margin:0 2%;}
+        /*登录块样式*/			
+		/*.oauth-area {
+			position: absolute;
+			bottom: 20px;
+			left: 0px;
+			text-align: center;
+			width: 100%;
+			padding: 0px;
+			margin: 0px;
+		}
+		
+		.oauth-area .oauth-btn {
+			display: inline-block;
+			width: 50px;
+			height: 50px;
+			background-size: 30px 30px;
+			background-position: center center;
+			background-repeat: no-repeat;
+			margin: 0px 20px;*/
+			/*-webkit-filter: grayscale(100%); */
+			/*border: solid 1px #ddd;
+			border-radius: 25px;
+		}
+		
+		.oauth-area .oauth-btn:active {
+			border: solid 1px #aaa;
+		}
+		
+		.oauth-area .oauth-btn.disabled {
+			background-color: #ddd;
+		}*/
+    </style>
+</head>
+<body>
+<div data-role="page" id="Page_login">
+  	<div data-role="header" data-theme="c" class="ui-bar-c">
+      	<h3>请登录</h3>
+  	</div> 
+  	<div data-role="main" class="ui-content">
+      	<form action="http://192.168.1.103/Ego/login.php" method="post" style="margin-top:25%">
+          <laber for="username" class="ui-hidden-accessible">手机号:</laber>
+          <div class="gap"><input type="text" id="phoneNum" name="phoneNum" placeholder="请输入手机号" data-clear-btn="true" onfocusout="validatename(this.value)"></div>
+          <p class="gap" id="name" style="color:red;"></p><br>
+          <div class="gap"><input type="text" id="valid" data-clear-btn="true"><a type="button" class="ui-btn ui-btn-b ui-btn-inline" onclick="valid(phoneNum.value)">发送验证码</a></div>
+          <div class="gap"><input type="submit" value="提交"></div>
+      	</form><br>
+  	</div>
+</div>
+
+<script src="js/bmob.js"></script>
+<script>
+	Bmob.initialize("a0e868b44cf5d1b6500e715695970578", "adc5ab813814c375352be3b59af74c0a");
+	var Msg = Bmob.Object.extend("Msg");
+    var msg = new Msg();
+    msg.set("smsId", 1232222);
+    msg.save(null, {
+      success: function(object) {
+        alert("create object success, object id:"+object.id);
+      },
+      error: function(model, error) {
+        alert("create object fail");
+      }
+    });
+	function valid(phoneNum){
+		Bmob.Sms.requestSmsCode({"mobilePhoneNumber": phoneNum, "template":"Ego登录验证"} ).then(function(obj) {
+			alert("smsId:"+obj.smsId); //
+		}, function(err){
+		  	alert("发送失败:"+err);
+		});
+	}	
+</script>
+<script src="js/hello.js"></script>
+<script src="js/index.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.4.5.js"></script>
+</body>
+</html>

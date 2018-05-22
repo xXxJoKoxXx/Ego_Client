@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta content=”yes” name=”apple-mobile-web-app-capable” />
+    <meta content=”black” name=”apple-mobile-web-app-status-bar-style” />
+    <meta content=”telephone=no” name=”format-detection” />
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.css">
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.css">
+    <link rel="stylesheet" href="css/jquery.mobile.theme-1.4.5.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
+    <title>Register Page</title>
+    <script>
+    </script>
+</head>
+<body>
+<div data-role="page" id="Page_register">
+    <div data-role="header" data-theme="c" class="ui-bar-c">
+        <h3>注册</h3>
+        <a href="#" class="ui-btn ui-btn-c" data-rel="back"><i class="fa fa-arrow-left" style="font-size:20px 20px;color:#828282;"></i></a>
+    </div>
+    <div data-role="main" class="ui-content">
+        <form action="" method="post" style="margin-top:25%">
+                <label class="ui-hidden-accessible">用户名：</label><br>
+                <div class="gap"><input type="text" name="username" placeholder="请输入用户名..." onfocusout="validatename(this.value)"></div>
+                <p class="gap" id="name" style="color:red;"></p>
+                <label class="ui-hidden-accessible">密码：</label>
+                <div class="gap"><input type="password" name="password" placeholder="请输入密码..." onfocusout="validatepwd(this.value)"></div>
+                <p class="gap" id="pwd" style="color:red;"></p>
+                <label class="ui-hidden-accessible">确认密码：</label>
+                <div class="gap"><input type="password" name="conf_password" placeholder="请再次输入密码..." onfocusout="confirm_pwd(this.value,password.value)"></div>
+                <p class="gap" id="conf_pwd" style="color:red;"></p>
+                <label class="ui-hidden-accessible">手机号：</label>
+                <div class="gap"><input type="text" name="phone_num" maxlength="11" placeholder="请输入手机号码..." onfocusout="validatephone(this.value)"></div><br>
+                <p class="gap" id="phone" style="color:red;"></p>
+            <div class="gap"><input type="submit" value="提交" onclick="insertDB(username.value,password.value,phone_num.value)"></div>
+        </form>
+    </div>
+</div>
+<script src="js/hello.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/jquery.mobile-1.4.5.js"></script>
+</body>
+</html>
